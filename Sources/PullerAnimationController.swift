@@ -17,8 +17,8 @@ final class PullerAnimationController: NSObject {
     
     private let model: PullerModel
     private weak var viewController: UIViewController?
-    private var screenWidth: CGFloat { UIScreen.main.bounds.width }
-    private var screenHeight: CGFloat { UIScreen.main.bounds.height }
+    private var screenWidth: CGFloat { UIWindow.keyWindow?.bounds.width ?? .zero }
+    private var screenHeight: CGFloat { UIWindow.keyWindow?.bounds.height ?? .zero }
     private var previousCornerRadius: CGFloat = 0
     
     init(model: PullerModel,
@@ -34,7 +34,7 @@ final class PullerAnimationController: NSObject {
                          until detent: PullerModel.Detent,
                          using transitionContext: UIViewControllerContextTransitioning) {
         
-        toViewController.view.frame.origin.y = UIScreen.main.bounds.maxY
+        toViewController.view.frame.origin.y = UIWindow.keyWindow?.bounds.maxY ?? .zero
         previousCornerRadius = fromViewController.view.layer.cornerRadius
 
         let adjustedDetent = adjustDetent(detent, toViewController: toViewController)
@@ -96,7 +96,7 @@ final class PullerAnimationController: NSObject {
             if self.pullerMovement == .horizontal {
                 fromViewController.view.frame.origin.x = self.screenWidth
             } else {
-                let value = UIScreen.main.bounds.maxY
+                let value = UIWindow.keyWindow?.bounds.maxY ?? .zero
                 fromViewController.view.frame.origin.y = value
                 shadowView?.frame.origin.y = value
             }

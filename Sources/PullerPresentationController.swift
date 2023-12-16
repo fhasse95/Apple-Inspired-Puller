@@ -85,8 +85,8 @@ final public class PullerPresentationController: UIPresentationController {
     }
     private var isProgrammaticallyScrolling = false
     
-    private lazy var screenWidth = { UIScreen.main.bounds.width }()
-    private lazy var screenHeight = { UIScreen.main.bounds.height }()
+    private lazy var screenWidth = { UIWindow.keyWindow?.bounds.width ?? .zero }()
+    private lazy var screenHeight = { UIWindow.keyWindow?.bounds.height ?? .zero }()
     private var minimumPullerHeight: CGFloat = 0
     private var currentPullerHeight: CGFloat = 0
     
@@ -112,11 +112,12 @@ final public class PullerPresentationController: UIPresentationController {
     private var closeButton: UIButton?
     
     private var pullerOffset: CGFloat {
-        model.hasDynamicHeight ? 0 : 6
+        self.model.hasDynamicHeight ? 0 : 6
     }
 
+    private let maxPullerWidth: CGFloat = 600
     private var pullerWidth: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? max(screenWidth, screenHeight) * 0.4 : min(screenWidth, screenHeight)
+        min(min(self.screenWidth, self.screenHeight), self.maxPullerWidth)
     }
     
     // MARK: - Public methods

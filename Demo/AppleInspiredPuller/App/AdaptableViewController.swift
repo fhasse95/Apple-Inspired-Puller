@@ -12,7 +12,7 @@ final class AdaptableViewController: UIViewController {
     
     private let insets: UIEdgeInsets = .init(top: 65, left: 16, bottom: 16, right: 16)
     private let minimumHeight: CGFloat = 100
-    private let maximumHeight = UIScreen.main.bounds.height - 100
+    private let maximumHeight = (UIWindow.keyWindow?.height ?? 0) - 100
     private let impactGenerator = UIImpactFeedbackGenerator()
     private var pipButton: UIButton!
     private var isMinimized = true
