@@ -65,6 +65,9 @@ public struct PullerModel {
   
   /// Uses compact width size on iPads.
   public var isCompactPadSize: Bool
+
+  /// The compact width size to use on iPads.
+  public var compactPadWidth: CGFloat
   
   /// Uses 3D Effect for the behind View Controller
   public var has3DEffect: Bool
@@ -88,6 +91,7 @@ public struct PullerModel {
               supportsInteractivePopGesture: Bool = true,
               embeddingViewToScrollView: Bool = false,
               isCompactPadSize: Bool = true,
+              compactPadWidth: CGFloat = 500,
               has3DEffect: Bool = true,
               isRubberbanding: Bool = true) {
     self.detents = detents
@@ -106,6 +110,7 @@ public struct PullerModel {
     self.supportsInteractivePopGesture = supportsInteractivePopGesture
     self.embeddingViewToScrollView = embeddingViewToScrollView
     self.isCompactPadSize = isCompactPadSize
+    self.compactPadWidth = compactPadWidth
     self.has3DEffect = has3DEffect
     self.isRubberbanding = isRubberbanding
   }

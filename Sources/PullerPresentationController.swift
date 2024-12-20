@@ -111,7 +111,7 @@ final public class PullerPresentationController: UIPresentationController {
 
   private var pullerWidth: CGFloat {
 
-    UIDevice.current.userInterfaceIdiom == .pad && model.isCompactPadSize ? 468 : min(screenWidth, screenHeight)
+    UIDevice.current.userInterfaceIdiom == .pad && model.isCompactPadSize ? model.compactPadWidth : min(screenWidth, screenHeight)
   }
 
   // MARK: - Public methods
