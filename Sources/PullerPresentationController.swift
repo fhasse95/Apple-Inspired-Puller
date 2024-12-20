@@ -396,9 +396,6 @@ final public class PullerPresentationController: UIPresentationController {
     private func setupViews() {
         containerView?.addSubview(shadowView)
         shadowView.backgroundColor = toView.backgroundColor
-        if #available(iOS 13.0, *) {
-            shadowView.overrideUserInterfaceStyle = toView.traitCollection.userInterfaceStyle
-        }
         containerView?.addSubview(toView)
 
         let panGestureRecognizer = makePanGestureRecognizer()
