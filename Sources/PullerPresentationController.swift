@@ -355,10 +355,6 @@ final public class PullerPresentationController: UIPresentationController {
     self.dimmingView = dimmingView
 
     containerView.addSubview(shadowView)
-    if #available(iOS 13.0, *) {
-      shadowView.overrideUserInterfaceStyle = toView.traitCollection.userInterfaceStyle
-    }
-
     containerView.addSubview(toView)
   }
 
@@ -873,7 +869,7 @@ final public class PullerPresentationController: UIPresentationController {
   }
 
   private func handleEndVerticalGesture(_ gesture: UIPanGestureRecognizer) {
-    
+
     guard needsMovingPuller else {
       return
     }
