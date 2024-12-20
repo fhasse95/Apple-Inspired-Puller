@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/zsergey/Apple-Inspired-Puller.git",
       "state" : {
-        "branch" : "develop",
-        "revision" : "30bac8572514487c2387ea46d9e6f4d4d9d0c809"
+        "revision" : "553fe17487a37fa9abc4fd41a6e383f3d8d8a889",
+        "version" : "1.0.0"
       }
     }
   ],
