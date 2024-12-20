@@ -1,6 +1,6 @@
 import UIKit
 
-final public class PullerPresentationController: UIPresentationController {
+final public class PullerPresentationController: UIPresentationController, UIGestureRecognizerDelegate {
 
   // MARK: - Public properties
 
@@ -511,10 +511,13 @@ final public class PullerPresentationController: UIPresentationController {
 
   private func makePanGestureRecognizer() -> UIPanGestureRecognizer {
     let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-    panGesture.minimumNumberOfTouches = 1
-    panGesture.maximumNumberOfTouches = 1
+    panGesture.delegate = self
     panGesture.delaysTouchesBegan = true
     return panGesture
+  }
+
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+      return true
   }
 
   private func makeDimmingView() -> PullerDimmingView {
