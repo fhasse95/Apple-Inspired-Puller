@@ -511,6 +511,8 @@ final public class PullerPresentationController: UIPresentationController {
 
   private func makePanGestureRecognizer() -> UIPanGestureRecognizer {
     let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+    panGesture.minimumNumberOfTouches = 1
+    panGesture.maximumNumberOfTouches = 1
     panGesture.delaysTouchesBegan = true
     return panGesture
   }
